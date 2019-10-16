@@ -11,6 +11,16 @@ router.use(function(req,res,next) {
   next();
 });
 
+function getQuestion(callback) {
+  var sql = "SELECT * FROM question"
+
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("Result: " + result);
+    callback(err, result);
+    con.end();
+  });
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
