@@ -5,13 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var usersRouter = require('./routes/users');
-var mobiletestRouter = require('./routes/mobiletest');
 var questionRouter = require('./routes/question');
 var clientRouter = require('./routes/client');
 var lobbyRouter = require('./routes/lobby');
 
 var app = express();
-var port = 3000;
+var port = 3002;
 
 
 // app.js
@@ -26,7 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', clientRouter);
 app.use('/users', usersRouter);
-app.use('/mobiletest', mobiletestRouter);
 app.use('/question', questionRouter);
 app.use('/client', clientRouter);
 app.use('/lobby', lobbyRouter);
