@@ -11,15 +11,6 @@ router.use(function(req,res,next) {
   next();
 });
 
-function getQuestion(callback) {
-  var sql = "SELECT * FROM question"
-
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("Result: " + result);
-    callback(err, result);
-  });
-}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -28,7 +19,7 @@ router.get('/', function(req, res, next) {
 
   getQuestion(function (err, sql_result) {
     var obj = sql_result[0];
-    res.render('question.html', { title: 'Musiquiz' , access_token, refresh_token, question: obj.Question, answer1: obj.Answer1, answer2: obj.Answer2, answer3: obj.Answer3, answer4: obj.Answer4, spotify_uri: obj.SpotifyURI});
+    res.render('question.html', { title: 'Musiquiz' , access_token, refresh_token, question: "Question", answer1: "Answer1", answer2: "Answer2", answer3: "Answer3", answer4: "Answer4"});
   });
 });
 

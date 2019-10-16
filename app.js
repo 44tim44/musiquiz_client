@@ -3,8 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const initDB = require("./public/javascripts/database").initDB;
-const getDB = require("./public/javascripts/database").getDB;
 
 var usersRouter = require('./routes/users');
 var mobiletestRouter = require('./routes/mobiletest');
@@ -15,7 +13,6 @@ var lobbyRouter = require('./routes/lobby');
 var app = express();
 var port = 3000;
 
-initDB();
 
 // app.js
 app.engine('html', require('ejs').renderFile);
